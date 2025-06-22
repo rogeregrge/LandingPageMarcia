@@ -368,12 +368,7 @@ body {
 
 .clarification-solution {
   color: #ffffff;
-  font-family:
-    "Inter",
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  font-family: var(--work-sans-font);
   font-weight: 400;
   line-height: 28px;
   margin-top: 32px;
@@ -589,12 +584,7 @@ body {
 }
 
 .maturity-understanding {
-  font-family:
-    "Inter",
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  font-family:  var(--work-sans-font);
   font-size: 18px;
   font-weight: 400;
   line-height: 28px;
@@ -612,17 +602,17 @@ body {
 
 .maturity-explanation {
   color: #ffffff;
-  font-family:
-    "Inter",
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  font-family: var(--work-sans-font);
   font-size: 18px;
   font-weight: 400;
   line-height: 28px;
   margin-top: 24px;
   text-align: center; /* Adicionar: centralizar */
+}
+
+.maturity-bold{
+  font-weight: 700;
+  color: #d8c3b2;
 }
 
 .maturity-question {
@@ -1703,7 +1693,7 @@ body {
   align-items: center;
   color: #593e2d;
   justify-content: center;
-  font-family: "Crimson Pro", sans-serif;
+  font-family: var(--work-sans-font);
 }
 
 .faq-title {
@@ -1772,7 +1762,7 @@ body {
   padding: 0 16px;
   background-color: #f4e8d2;
   color: #593e2d;
-  font-family: "Work Sans", sans-serif;
+  font-family: var(--work-sans-font);
   font-size: 16px;
   font-weight: 400;
   line-height: 22px;
@@ -1808,7 +1798,7 @@ body {
   min-height: 64px;
   padding: 0 32px;
   gap: 10px;
-  font-family: "Work Sans", sans-serif;
+  font-family: var(--work-sans-font);
   font-size: 16px;
   color: #fff;
   font-weight: 700;
@@ -1860,11 +1850,15 @@ body {
   }
 
   /* Mobile Container */
-  .header {
+ .header {
     max-width: 100%;
     height: auto;
     margin: 0;
     background-image: url("./images/background.jpg");
+    background-size: cover; /* ← Cobre toda área sem distorção */
+    background-position: center center; /* ← Centraliza imagem */
+    background-repeat: no-repeat; /* ← Evita repetição */
+    background-attachment: scroll; /* ← Performance melhor no mobile */
   }
 
   /* Mobile Navigation */
@@ -1896,7 +1890,7 @@ body {
     background-size: cover;
     background-position: center;
     aspect-ratio: 0.424;
-    min-height: calc(100vh - 80px);
+    max-height: calc(100vh - 200px);
   }
 
   .title-section {
@@ -1915,25 +1909,36 @@ body {
   }
 
   .main-title {
+    width: 348px;
     font-size: 48px;
     font-weight: 600;
     transform: translateY(-400px);
   }
 
   .description {
-    font-size: 16px;
+    width: 100%;
+    max-width: 320px;
+    font-size: 17px;
     line-height: 20px;
     margin-top: 16px;
+    transform: translateY(-400px);
+    letter-spacing: 0.2px;
   }
 
   .cta-section {
+    width: 348px;
     margin-top: 24px;
+    transform: translateY(-400px);
   }
 
   .cta-button {
     min-width: 240px;
     min-height: 64px;
     padding: 0 32px;
+    font-size: 16px;
+    transform: translateX(-20px);
+  }
+  .button-text {
     font-size: 16px;
   }
 
@@ -1987,137 +1992,190 @@ body {
 
   /* Mobile Target Section */
   .target-audience-section {
-    padding: 40px 0;
     background-image: none;
-    background: linear-gradient(
-      90deg,
-      rgba(174, 124, 97, 1) 0%,
-      rgba(89, 62, 45, 1) 100%
+    background: radial-gradient(
+      ellipse 185% 38% at -84% 83%, 
+      #986143 0%, 
+      #302519 100%
     );
   }
-
-  .target-audience-container {
-    width: 100%;
-    padding: 0 20px;
-  }
-
-  .target-audience-title {
-    font-size: 40px;
-    line-height: 1;
-  }
-
-  .target-audience-subtitle {
-    font-size: 24px;
-    line-height: 24px;
-  }
-
-  .target-audience-boxes {
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .target-audience-box {
-    min-width: auto;
-    width: 100%;
-    padding: 24px;
-  }
-
-  .target-audience-button {
-    width: 100%;
-    padding: 0 24px;
-  }
-
-  .clarification-container {
-    margin: 40px 20px 0;
-    padding: 24px;
-  }
-
-  .clarification-title {
-    font-size: 32px;
-    line-height: 32px;
-  }
-
-  /* Mobile Comparison Section */
-  .comparison-section {
+  
+    .target-audience-container {
+      width: 100%;
+      padding: 0 20px;
+    }
+  
+    .target-audience-title {
+      font-size: 40px;
+      line-height: 1;
+    }
+  
+    .target-audience-subtitle {
+      font-size: 32px;
+      line-height: 24px;
+    }
+  
+    .target-audience-boxes {
+      flex-direction: column;
+      gap: 24px;
+    }
+  
+    .target-audience-box {
+    font-size: 16px;
     min-height: auto;
-    aspect-ratio: 0.323;
-  }
-
-  .comparison-container {
+    padding: 24px 24px;
     width: 100%;
-    padding: 40px 20px;
-  }
+    }
 
-  .comparison-columns {
+    .target-audience-button {
+      width: 100%;
+      padding: 0 24px;
+    }
+
+    .target-audience-conclusion {
+      font-family: Crimson Pro;
+      color: #fff;
+      font-size: 19px;
+      font-weight: 600;
+      line-height: 1;
+      margin-top: 32px;
+      text-align: center;
+    }
+  
+  .clarification-container {
+    width: auto;
+    max-width: calc(100% - 40px); /* ← Deixa 20px de cada lado */
+    margin: 40px 20px; /* ← Margem lateral fixa */
+    padding: 24px; /* ← Padding menor para mobile */
+    border-radius: 24px; /* ← Bordas menores */
+    transform: translateY(50px);
+  }
+  
+    .clarification-title {
+      font-size: 32px;
+      line-height: 32px;
+    }
+  
+    /* Mobile Comparison Section */
+   .comparison-section {
+    /* Reset de altura */
+    min-height: auto;
+    height: auto;
+    aspect-ratio: unset; /* Remove aspect-ratio */
+    
+    /* Altura controlada por padding */
+    padding: auto;
+    
+    /* Background mantido */
+    background-size: contain; /* Melhor que 100% para mobile */
+    background-position: bottom;
+    background-repeat: no-repeat;
+    
+    /* Flexbox para centralizar conteúdo */
+    display: flex;
     flex-direction: column;
-    gap: 32px;
+    justify-content: center;
+    align-items: center;
   }
-
-  .comparison-column {
-    width: 100%;
-    padding: 24px;
-  }
-
-  .comparison-title {
-    font-size: 32px;
-    line-height: 32px;
-  }
-
-  .comparison-button {
-    margin-top: 24px;
-    width: 100%;
-    padding: 0 11px 0 10px;
-  }
-
-  /* Mobile Maturity Section */
+  
+    .comparison-container {
+      width: 100%;
+      padding: 40px 20px;
+    }
+  
+    .comparison-columns {
+      flex-direction: column;
+      gap: 32px;
+    }
+  
+    .comparison-column {
+      width: 100%;
+      padding: 24px;
+    }
+  
+    .comparison-title {
+      font-size: 32px;
+      line-height: 32px;
+    }
+  
+    .comparison-button {
+      margin-top: 24px;
+      width: 100%;
+      padding: 0 11px 0 10px;
+      transform: translateY(-20px);
+    }
+  
+    /* Mobile Maturity Section */
+   /* MATURITY SECTION - Remover aspect-ratio como no comparison */
   .maturity-section {
     min-height: auto;
-    aspect-ratio: 0.352;
+    aspect-ratio: unset; /* Remove aspect-ratio */
+    height: auto;
+    padding: 40px 0; /* Controla altura com padding */
   }
 
+  /* MATURITY CONTAINER - Mesma lógica do clarification-container */
   .maturity-container {
-    width: 100%;
-    padding: 24px;
+    /* Tamanho e posicionamento - IGUAL AO CLARIFICATION */
+    width: auto;
+    max-width: calc(100% - 40px); /* Deixa 20px de margem de cada lado */
+    margin: 0 20px; /* Margem lateral fixa */
+    
+    /* Espaçamento interno reduzido */
+    padding: 20px; /* Era 24px */
+    
+    /* Manter propriedades visuais existentes */
+    border-radius: 16px;
+    border: 1px solid #d8c3b2;
+    
+    /* Garantir box-sizing */
+    box-sizing: border-box;
   }
 
   .maturity-title {
-    font-size: 32px;
-    line-height: 32px;
+    font-size: 28px; /* Reduzir um pouco */
+    line-height: 30px;
   }
 
   .maturity-subtitle {
-    font-size: 24px;
+    font-size: 22px; /* Reduzir um pouco */
     line-height: 24px;
   }
 
-  /* Mobile Pillars Section */
+  /* PILLARS SECTION - Aplicar mesma lógica nos containers */
   .pillars-container {
-    width: 100%;
-    padding: 0 20px;
+    width: auto;
+    max-width: calc(100% - 40px); /* Deixa margem lateral */
+    margin: 0 20px; /* Em vez de padding: 0 20px */
+    padding: 0;
+    box-sizing: border-box;
   }
 
   .pillars-title {
-    font-size: 32px;
+    font-size: 28px; /* Consistência */
   }
 
   .pillars-boxes {
     flex-direction: column;
-    gap: 24px;
+    gap: 20px; /* Reduzir um pouco */
   }
 
   .pillar-box {
     width: 100%;
-    padding: 24px;
+    padding: 20px; /* Era 24px */
+    box-sizing: border-box;
   }
 
   .how-it-works-container {
-    width: 100%;
-    margin-top: 40px;
-    padding: 0 20px;
+    width: auto;
+    max-width: calc(100% - 40px); /* Mesma lógica */
+    margin: 40px 20px 0; /* top, lateral, bottom */
+    padding: 0;
+    box-sizing: border-box;
   }
 
   .how-it-works-title {
-    font-size: 32px;
+    font-size: 28px; /* Consistência */
   }
 
   .how-it-works-boxes {
@@ -2125,52 +2183,100 @@ body {
   }
 
   .how-it-works-box {
-    padding: 24px;
+    padding: 20px; /* Era 24px */
     gap: 16px;
+    box-sizing: border-box;
   }
 
   .how-it-works-box-title {
-    font-size: 24px;
+    font-size: 22px; /* Consistência */
     line-height: 24px;
   }
 
-  /* Mobile Call to Action */
+  /* CALL TO ACTION SECTION */
   .call-to-action-section {
-    aspect-ratio: 1;
+    aspect-ratio: unset; /* Remove aspect-ratio fixo */
+    padding: 40px 0; /* Altura controlada */
   }
 
   .call-to-action-container {
-    width: 100%;
-    padding: 40px 20px;
+    width: auto;
+    max-width: calc(100% - 40px); /* Mesma lógica */
+    margin: 0 20px; /* Margem lateral */
+    padding: 20px; /* Era 40px 20px */
+    box-sizing: border-box;
   }
 
   .call-to-action-title {
-    font-size: 32px;
+    font-size: 28px; /* Consistência */
   }
 
   .call-to-action-button {
     width: 100%;
-    padding: 0 32px;
+    max-width: 280px; /* Limitar largura máxima */
+    padding: 0 20px; /* Era 0 32px */
+    margin: 0 auto; /* Centralizar */
+    box-sizing: border-box;
   }
 
-  /* Mobile About Section */
-  .about-marcia-container {
+  /* ABOUT SECTION */
+/* PROBLEMA ATUAL: Texto centralizado (como na segunda imagem) */
+@media (max-width: 480px) {
+  .about-marcia-text {
     width: 100%;
-    padding: 0 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    order: 2;
+    text-align: center; /* ← PROBLEMA: Centralizando o texto */
+  }
+}
+
+/* CORREÇÃO: Alinhar texto à esquerda (como na primeira imagem) */
+@media (max-width: 480px) {
+  .about-marcia-text {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    order: 2;
+    text-align: left; /* ← CORREÇÃO: Alinhar à esquerda */
+  }
+}
+
+/* CÓDIGO COMPLETO CORRIGIDO: */
+@media (max-width: 480px) {
+  .about-marcia-container {
+    width: auto;
+    max-width: calc(100% - 40px);
+    margin: 0 20px;
+    padding: 0;
+    box-sizing: border-box;
   }
 
   .about-marcia-content {
+    display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 20px;
+    align-items: center; /* ← Centraliza apenas a imagem */
   }
 
   .about-marcia-text {
     width: 100%;
-    padding: 24px;
+    padding: 30px;
+    box-sizing: border-box;
+    order: 2;
+    text-align: left; /* ← TEXTO ALINHADO À ESQUERDA */
   }
 
   .about-marcia-title {
-    font-size: 32px;
+    font-size: 28px;
+    margin-bottom: 16px;
+    text-align: left; /* ← TÍTULO TAMBÉM À ESQUERDA */
+  }
+
+  .about-marcia-description {
+    font-size: 18px;
+    line-height: 2; /* ← Usar ratio em vez de pixels (mais responsivo) */
+    text-align: left;
   }
 
   .about-marcia-image {
@@ -2181,37 +2287,46 @@ body {
     right: auto;
     top: auto;
     transform: none;
+    order: 1;
+    margin: 0 auto; /* ← IMAGEM CENTRALIZADA */
+    padding-bottom: 18px;
   }
 
-  /* Mobile Testimonials */
+  /* TESTIMONIALS SECTION */
   .testimonials-container {
-    width: 100%;
-    padding: 0 20px;
+    width: auto;
+    max-width: calc(100% - 40px); /* Mesma lógica */
+    margin: 0 20px; /* Margem lateral */
+    padding: 0;
+    box-sizing: border-box;
   }
 
   .testimonials-title {
-    font-size: 40px;
+    font-size: 32px; /* Manter um pouco maior */
   }
 
   .testimonials-row {
     flex-direction: column;
-    gap: 24px;
+    gap: 20px; /* Era 24px */
   }
 
   .testimonial-card {
     width: 100%;
-    padding: 32px;
+    padding: 24px; /* Manter padding dos cards */
+    box-sizing: border-box;
   }
 
-  /* Mobile FAQ */
+  /* FAQ SECTION */
   .faq-container {
-    width: 100%;
-    margin-top: 80px;
-    padding: 0 20px;
+    width: auto;
+    max-width: calc(100% - 40px); /* Mesma lógica */
+    margin: 80px 20px 0; /* top, lateral, bottom */
+    padding: 0;
+    box-sizing: border-box;
   }
 
   .faq-title {
-    font-size: 40px;
+    font-size: 32px; /* Manter maior para destaque */
   }
 
   .faq-list {
@@ -2220,42 +2335,38 @@ body {
 
   .faq-whatsapp-button {
     width: 100%;
-    padding: 0 32px;
+    max-width: 280px; /* Limitar largura máxima */
+    padding: 0 20px; /* Era 0 32px */
+    margin: 10px auto; /* Centralizar */
+    box-sizing: border-box;
   }
 
   .faq-final-question {
-    font-size: 32px;
+    font-size: 28px; /* Consistência */
   }
-
-  /* Mobile Footer */
-  .footer-container {
-    padding: 0 20px;
-  }
-
-    .target-audience-container,
-  .comparison-container,
-  .pillars-container,
-  .call-to-action-container,
-  .about-marcia-container,
-  .testimonials-container,
-  .faq-container {
+    /* Mobile Footer */
+    .footer-container {
+      padding: 0 20px;
+    }
+     .faq-question {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
     width: 100%;
-    max-width: calc(100vw - 40px); /* Desconta padding lateral */
-    margin: 0 auto;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 16px 15px;
+    gap: 12px; /* ← Espaço entre texto e seta */
     box-sizing: border-box;
   }
 
-    .cta-button,
-  .target-audience-button,
-  .comparison-button,
-  .maturity-button,
-  .maturity-journey-button,
-  .call-to-action-button,
-  .faq-whatsapp-button {
-    max-width: calc(100vw - 80px); /* Deixar margem */
-    width: 100%;
-    box-sizing: border-box;
+  .faq-question span {
+    flex: 1; /* ← Texto ocupa espaço disponível */
+    line-height: 1.4;
+    margin-right: 8px;
+    word-wrap: break-word;
   }
+
+  .faq-icon {
+    flex-shrink: 0; /* ← Seta não diminui */
+  }
+}
 }
